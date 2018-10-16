@@ -170,9 +170,9 @@ func getValue( value *big.Int) string {
 	str := value.String()
 	strLen := len(str)
 	if strLen > 18 {
-		buff.WriteString(str[:len(str) - 19 - 1])
+		buff.WriteString(str[:len(str) - 18])
 		buff.WriteRune('.')
-		buff.WriteString(str[len(str) - 19 - 1: len(str) - 1])
+		buff.WriteString(str[len(str) - 18: len(str)])
 	}
 	return buff.String()
 }
