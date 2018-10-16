@@ -145,6 +145,9 @@ func ShowAccounts(addrs []*walt.Address, newAddr *Uint168, wallet walt.Wallet) e
 				}
 			}
 			fmt.Printf(format, "ASSETID", BytesToHexString(BytesReverse(assetID.Bytes())))
+			if available.Sign() != 0 {
+				continue
+			}
 			if assetID.IsEqual(walt.SystemAssetId) {
 				fmt.Printf(format, "  ├──BALANCE", Fixed64(available.Int64()).String())
 				fmt.Printf(format, "  └──(LOCKED)", "("+Fixed64(locked.Int64()).String()+")")
